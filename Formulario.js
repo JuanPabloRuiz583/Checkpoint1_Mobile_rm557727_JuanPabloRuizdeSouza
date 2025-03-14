@@ -1,11 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View,TextInput,Button } from 'react-native';
+import { StyleSheet, Text, View,TextInput,Button,Image } from 'react-native';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import RenderizarDados from './renderizar';
 
 
-export default function App() {
+export default function Formulario() {
   const [nome, setNome] = useState('');
   const [valor, setValor] = useState('');
   const [acrescimo, setAcrescimo] = useState('');
@@ -30,6 +30,10 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      <Image
+         style={styles.imagem}
+         source={require('./assets/calculadora.png')}
+       />
       <Text  style={styles.titulo}>Formulario</Text>
       <TextInput
       style={styles.input}
@@ -63,10 +67,10 @@ export default function App() {
        
        {mostrarDados && resultado && (
         <RenderizarDados 
-          nome={resultado.nome} 
-          valor={resultado.valor} 
-          acrescimo={resultado.acrescimo} 
-          valorComAcrescimo={resultado.valorComAcrescimo} 
+          nomep={resultado.nome} 
+          valorp={resultado.valor} 
+          acrescimop={resultado.acrescimo} 
+          resultadop={resultado.valorComAcrescimo} 
         />
       )}
    
@@ -77,13 +81,16 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ed145b',
+    backgroundColor: '#2214ED',
     alignItems: 'center',
     justifyContent: 'center',
   },
   imagem: {
-    resizeMode: 'center',
-    width: 250
+    resizeMode: 'contain',
+    width: 150, 
+    height: 150, 
+    marginRight: 20, 
+    
   },
   input: {
     backgroundColor: '#fff',
